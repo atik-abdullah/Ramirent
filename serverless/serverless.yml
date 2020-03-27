@@ -8,15 +8,12 @@ provider:
   environment: ${file(../envs/dev.json)}
 
 plugins:
-    - serverless-sequelize-migrations
+  - serverless-sequelize-migrations
 
 functions:
-  UploadImage:
-    handler: handler.uploadImage
+  SaveFile:
+    handler: handler.saveFile
     events:
       - s3:
           bucket: sourcebucket103
           event: s3:ObjectCreated:*
-  ResizeImage:
-    handler: handler.resizeImage
-
